@@ -30,5 +30,16 @@
 		JOIN MEMBER M ON(B.BWRITER = M.MNO)
 		WHERE BCODE = #{bCode}
 	</select>
+	
+	<insert id="insertBoard" parameterType="java.util.HashMap">
+		INSERT INTO BOARD 
+		VALUES(SEQ_BNO.NEXTVAL,
+				#{board.bTitle},
+				#{board.bContent},
+				SYSDATE,
+				0,
+				#{member.mNo},
+				#{board.bCode})
+	</insert>
   
 </mapper>
